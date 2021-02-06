@@ -192,11 +192,8 @@ img {
     justify-content: center;
     align-items: center;
     height: auto;
-    width: 100vw;
     overflow: hidden;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
     background-color: white;
 }
 .brands div {
