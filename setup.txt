@@ -1,0 +1,35 @@
+# =================================================
+# Azure DevOps Agent Setup Automatic
+# =================================================
+
+$organization = "https://dev.azure.com/shaiksaqlainmustaq"
+$poolName = "test_pool"
+$agentName = "test-agent"
+$pat = ""
+
+# Agent Details
+$agentVersion = "4.261.0"
+$agentFolder = "C:/agent"
+$agentZip = "C:/agent/agent.zip"
+
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+Write-Host "Creating agent folder..."
+New-Item -ItemType Directory -Force -Path $agentFolder | Out-Null
+
+Write-Host "Downloading Azure DevOps agent..."
+$downloadUrl = "https://download.agent.dev.azure.com/agent/$agentVersion/vsts-agent-win-x64-$agentVersion.zip"
+
+Invoke-WebRequest -Uri $downloadUrl -OutFile $agentZip
+
+Write-Host "Extracting agent..."
+Expand-Archive -Path $agentZip -DestinationPath $agentFolder -Force
+
+Set-Location $agentFolder
+
+Write-Host "Configuring agent..."
+cmd /c ".\config.cmd --unattended --url `"$organization`" --auth pat --token `"$pat`" --pool `"$poolName`" --agent `"$agentName`" --replace --acceptTeeEula"
+
+Write-Host "Starting agent..."
+cmd /c ".\run.cmd"
