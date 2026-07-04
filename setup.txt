@@ -9,7 +9,7 @@ $agentName = "test-agent"
 $pat = ""
 
 # Agent Details
-$agentVersion = "4.261.0"
+$agentVersion = "5.276.0"
 $agentFolder = "C:/agent"
 $agentZip = "C:/agent/agent.zip"
 
