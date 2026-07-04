@@ -1,6 +1,6 @@
 # =================================================
 # Azure DevOps Agent Setup Automatic
-# https://uk.onetimesecret.com/secret/0878rmew2dwekpc7rqphsgtm73v1u5or5siuxu9wm3belu45sv74lwia7opm4h
+# https://quickforget.com/s/35a24293dae84325fd94499a61f8d89d31e705b629acb74c
 # =================================================
 
 $organization = "https://dev.azure.com/shaiksaqlainmustaq"
