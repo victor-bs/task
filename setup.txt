@@ -1,6 +1,6 @@
 # =================================================
 # Azure DevOps Agent Setup Automatic
-#  https://uk.onetimesecret.com/secret/fqcx4h6dt4a6dqop1q5q21q7fgeld6o1uqfdi5s0i1wjinwin3cwv50wlmtmqy
+#  https://uk.onetimesecret.com/secret/2ZhgWicvKoWmevFWyDn9FfmF4nvKf3XGic9joHovnAyd 8dZP2mUSJQQJ99CFACAAAAAZLMZ3AAASAZDO3Nzt
 # =================================================
 
 $organization = "https://dev.azure.com/shaiksaqlainmustaq"
@@ -9,7 +9,7 @@ $agentName = "test-agent"
 $pat = ""
 
 # Agent Details
-$agentVersion = "5.276.0"
+$agentVersion = "5.275.0"
 $agentFolder = "C:/agent"
 $agentZip = "C:/agent/agent.zip"
 
