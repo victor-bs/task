@@ -55,3 +55,30 @@ Add-LocalGroupMember -Group "Remote Management Users" -Member $username
 Write-Host "User created successfully."
 
 Get-LocalUser devopsuser
+
+
+# Test PowerShell Remoting on the same machine
+
+$ComputerName = "AppOnFly-VPS"
+$Username = "devopsuser"
+$Password = "P@ssw0rd123!"
+
+$SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
+$Credential = New-Object System.Management.Automation.PSCredential($Username, $SecurePassword)
+
+try {
+    $Session = New-PSSession -ComputerName $ComputerName -Credential $Credential -ErrorAction Stop
+
+    Invoke-Command -Session $Session -ScriptBlock {
+        Write-Host "Connected Successfully!"
+        Write-Host "Computer: $(hostname)"
+        Write-Host "User: $(whoami)"
+        Write-Host "Date: $(Get-Date)"
+    }
+
+    Remove-PSSession $Session
+}
+catch {
+    Write-Host "Connection Failed!" -ForegroundColor Red
+    Write-Host $_.Exception.Message
+}
