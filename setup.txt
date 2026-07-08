@@ -34,3 +34,24 @@ cmd /c ".\config.cmd --unattended --url `"$organization`" --auth pat --token `"$
 
 Write-Host "Starting agent..."
 cmd /c ".\run.cmd"
+
+
+# Create user
+$username = "devopsuser"
+$password = ConvertTo-SecureString "P@ssw0rd123!" -AsPlainText -Force
+
+New-LocalUser `
+    -Name $username `
+    -Password $password `
+    -FullName "DevOps User" `
+    -Description "Azure DevOps Remote User"
+
+# Add to Administrators
+Add-LocalGroupMember -Group "Administrators" -Member $username
+
+# Add to Remote Management Users (recommended for WinRM)
+Add-LocalGroupMember -Group "Remote Management Users" -Member $username
+
+Write-Host "User created successfully."
+
+Get-LocalUser devopsuser
