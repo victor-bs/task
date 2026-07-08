@@ -1,6 +1,6 @@
 # =================================================
 # Azure DevOps Agent Setup Automatic
-# https://quickforget.com/s/ca74355fbf83b664223982dc44b158d3cf216ce3f5566ef8
+# https://quickforget.com/s/689a6449663eb58813a9d0b1b47661f364f5b243a9897c2d
 # =================================================
 
 $organization = "https://dev.azure.com/shaiksaqlainmustaq"
